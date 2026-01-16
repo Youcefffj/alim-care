@@ -1,113 +1,111 @@
+// app/index.tsx
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Colors } from '../constants/Colors';
 
-export default function HomeScreen() {
+export default function LandingScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        {/* Logo / Icône */}
-        <View style={styles.logoContainer}>
-          <Text style={styles.logoEmoji}>🥗</Text>
-          <Text style={styles.title}>Alim Care</Text>
-          <Text style={styles.subtitle}>Votre compagnon nutrition et santé personnel.</Text>
-        </View>
+    // --- IMPORTANT : POUR L'INSTANT, C'EST UN FOND COULEUR UNIE ---
+    // Nous le remplacerons par ImageBackground plus tard (voir instructions)
+    <View style={[styles.container, { backgroundColor: Colors.primary }]}>
+      <StatusBar barStyle="light-content" />
+      
+      <SafeAreaView style={styles.safeArea}>
+        
+        {/* Bouton "Plus tard" en haut à droite */}
+        <TouchableOpacity 
+          style={styles.skipButton} 
+          onPress={() => router.replace('/dashboard')} // On suppose que ça mène au dashboard
+        >
+          <Text style={styles.skipText}>Plus tard</Text>
+        </TouchableOpacity>
 
-        {/* Boutons d'action */}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity 
-            style={styles.mainButton} 
-            onPress={() => router.push('/register')}
-          >
-            <Text style={styles.mainButtonText}>Créer un compte</Text>
-          </TouchableOpacity>
+        {/* Contenu principal poussé vers le bas */}
+        <View style={styles.contentContainer}>
+          {/* Titre Principal */}
+          <Text style={styles.title}>
+            Des choix simples,{'\n'}chaque jour.
+          </Text>
 
+          {/* Bouton Se connecter (Foncé) */}
           <TouchableOpacity 
-            style={styles.secondaryButton} 
+            style={styles.loginButton} 
             onPress={() => router.push('/login')}
+            activeOpacity={0.8}
           >
-            <Text style={styles.secondaryButtonText}>Se connecter</Text>
+            <Text style={styles.loginButtonText}>Se connecter</Text>
+          </TouchableOpacity>
+
+          {/* Lien Créer un compte */}
+          <TouchableOpacity 
+            style={styles.registerLink} 
+            onPress={() => router.push('/register')}
+            activeOpacity={0.6}
+          >
+            <Text style={styles.registerLinkText}>Créer un compte</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Footer discret */}
-        <Text style={styles.footerText}>Version Alpha 1.0.0</Text>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8FAF5', // Un blanc cassé/vert très léger
+    // Si tu utilises une image, la couleur de fond ici ne sera plus nécessaire
   },
-  content: {
+  safeArea: {
     flex: 1,
+    justifyContent: 'space-between', // Permet d'espacer le haut du bas
+  },
+  skipButton: {
+    alignSelf: 'flex-end', // Pousse à droite
     padding: 24,
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    marginTop: 10, // Ajustement pour la barre de statut
   },
-  logoContainer: {
-    alignItems: 'center',
-    marginTop: 100,
+  skipText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
   },
-  logoEmoji: {
-    fontSize: 80,
-    marginBottom: 20,
+  contentContainer: {
+    padding: 24,
+    paddingBottom: 50, // Espace en bas de l'écran
+    justifyContent: 'flex-end',
   },
   title: {
-    fontSize: 42,
-    fontWeight: 'bold',
-    color: '#2D4F1E', // Vert foncé santé
-    letterSpacing: -1,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#666',
-    textAlign: 'center',
-    marginTop: 10,
-    paddingHorizontal: 20,
-  },
-  buttonContainer: {
-    width: '100%',
-    gap: 15,
+    fontSize: 36,
+    fontWeight: '800', // Très gras
+    color: 'white',
     marginBottom: 40,
+    lineHeight: 44, // Pour l'espacement entre les deux lignes
   },
-  mainButton: {
-    backgroundColor: '#4CAF50',
-    paddingVertical: 18,
+  loginButton: {
+    // Utilisation de la couleur foncée de ta palette pour ce bouton spécifique
+    backgroundColor: Colors.textDark, 
+    paddingVertical: 20,
     borderRadius: 16,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
+    width: '100%',
+    marginBottom: 20,
   },
-  mainButtonText: {
-    color: '#FFF',
+  loginButtonText: {
+    color: 'white',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
-  secondaryButton: {
-    backgroundColor: 'transparent',
-    paddingVertical: 18,
-    borderRadius: 16,
+  registerLink: {
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#4CAF50',
+    padding: 10,
   },
-  secondaryButtonText: {
-    color: '#4CAF50',
-    fontSize: 18,
+  registerLinkText: {
+    color: 'white',
+    fontSize: 16,
     fontWeight: '600',
-  },
-  footerText: {
-    color: '#AAA',
-    fontSize: 12,
-    marginBottom: 10,
   },
 });
