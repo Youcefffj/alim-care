@@ -188,3 +188,4 @@ PR bienvenues. Pour les gros changements, ouvrir une issue/tâche avec :
 - le besoin (user story)
 - le comportement attendu
 - des captures si UI
+
