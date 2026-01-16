@@ -103,6 +103,10 @@ npm run start
 # Démarrage propre
 npx expo start -c
 ```
+```bash
+# pour QR code
+npx expo start --tunnel
+```
 
 ---
 
