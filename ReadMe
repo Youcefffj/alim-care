@@ -1,0 +1,84 @@
+🥗 Alim Care - MVP Mobile App
+📋 Présentation
+Alim Care est une application de santé et nutrition personnalisée. Ce projet utilise React Native avec Expo et le système de navigation Expo Router.
+
+L'architecture actuelle est conçue pour fonctionner avec un cache local (AsyncStorage) avant une migration prévue vers Supabase.
+
+🛠 Prérequis
+Avant de commencer, assurez-vous d'avoir installé :
+
+Node.js (LTS recommandé)
+
+npm ou yarn
+
+Expo Go (sur votre smartphone iOS/Android pour le test réel)
+
+🚀 Installation & Initialisation
+Cloner le projet :
+
+Bash
+git clone <url-du-depot>
+cd alim-care
+Installer les dépendances (Crucial) : Nous utilisons des bibliothèques spécifiques pour la navigation, les icônes et le stockage :
+
+Bash
+npm install
+# Ou manuellement si nécessaire :
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar @react-native-async-storage/async-storage lucide-react-native react-native-web react-dom @expo/metro-runtime
+Configuration du point d'entrée : Le projet a été basculé sur Expo Router. Vérifiez que votre package.json contient :
+
+JSON
+"main": "expo-router/entry"
+Lancement du serveur de développement :
+
+Bash
+npx expo start -c
+Note : L'option -c vide le cache pour éviter les erreurs de bundling au démarrage.
+
+📂 Architecture du Projet
+Plaintext
+/app
+  ├── _layout.tsx      # Configuration globale (Stack Navigation)
+  ├── index.tsx        # Accueil / Splash (Route: /)
+  ├── login.tsx        # Connexion (Route: /login)
+  ├── register.tsx     # Inscription (Route: /register)
+  ├── onboarding.tsx   # Questionnaire Santé (Route: /onboarding)
+  └── dashboard.tsx    # Accueil après connexion (Route: /dashboard)
+/components            # Éléments UI (Boutons, Inputs personnalisés)
+/constants             # Thème, couleurs (#4CAF50 pour le vert santé)
+/hooks                 # Logique métier (ex: useCache pour AsyncStorage)
+/assets                # Images et icônes
+🔄 État du Développement & Roadmap
+1. Ce qui est fait ✅
+Configuration de l'environnement Expo Router.
+
+Correction des dépendances Web pour le bundling Metro.
+
+Création de l'arborescence des fichiers et des routes.
+
+Design de base de la page index.tsx.
+
+2. Étape Suivante : Logique de l'Onboarding 🚧
+Le but est de créer un formulaire multi-étapes dans onboarding.tsx pour collecter :
+
+Régimes : Vegan, Végétarien.
+
+Pathologies : Diabète, Cholesterol, Tension.
+
+Mensurations : Poids, Taille.
+
+Activité : Sédentaire, Sportif, etc.
+
+Action à venir : Implémenter AsyncStorage pour sauvegarder ces objets JSON localement.
+
+3. Étape Future : Backend Supabase 🚀
+Remplacer la logique de stockage local par des appels API Supabase.
+
+Gérer l'authentification (Auth) et les tables PostgreSQL pour les profils utilisateurs.
+
+💡 Astuces de Développement
+Navigation : Utilisez router.push('/nom-de-la-page') pour naviguer.
+
+Styles : Nous privilégions StyleSheet pour rester proche du natif.
+
+Web : Si vous développez sur navigateur, assurez-vous que react-native-web est bien lié.
