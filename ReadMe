@@ -49,6 +49,42 @@ L’objectif court terme est de collecter un profil santé via un **onboarding m
 - **Expo Go** (pour tester sur téléphone iOS/Android)
 - (Optionnel) Android Studio / Xcode pour émulateurs
 
+#### Commandes utiles (installer + vérifier)
+
+Windows (PowerShell, via `winget`) :
+
+```powershell
+winget install OpenJS.NodeJS.LTS
+winget install Git.Git
+node -v
+npm -v
+git --version
+npx expo --version
+```
+
+macOS (Homebrew) :
+
+```bash
+brew install node git
+node -v && npm -v && git --version
+npx expo --version
+```
+
+Ubuntu/Debian :
+
+```bash
+sudo apt update
+sudo apt install -y nodejs npm git
+node -v && npm -v && git --version
+npx expo --version
+```
+
+Vérifier la cohérence des dépendances Expo (recommandé si bug de bundling) :
+
+```bash
+npx expo doctor
+```
+
 ### Installation
 
 ```bash
@@ -61,15 +97,11 @@ npm install
 ```bash
 # Dev server (QR code)
 npm run start
+```
 
-# Android (émulateur ou device)
-npm run android
-
-# iOS (macOS requis)
-npm run ios
-
-# Web
-npm run web
+```bash
+# Démarrage “propre” (cache)
+npm run start -c
 ```
 
 ### Démarrage “propre” (cache)
@@ -79,17 +111,6 @@ Si Metro/Expo fait des erreurs bizarres au démarrage :
 ```bash
 npx expo start -c
 ```
-
----
-
-## 🧾 Scripts
-
-Définis dans `package.json` :
-
-- **`npm run start`**: `expo start`
-- **`npm run android`**: `expo start --android`
-- **`npm run ios`**: `expo start --ios`
-- **`npm run web`**: `expo start --web`
 
 ---
 
@@ -180,11 +201,3 @@ npm run android
 ```
 
 ---
-
-## 🤝 Contribuer
-
-PR bienvenues. Pour les gros changements, ouvrir une issue/tâche avec :
-
-- le besoin (user story)
-- le comportement attendu
-- des captures si UI
