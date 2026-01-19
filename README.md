@@ -148,7 +148,7 @@ Le layout global est dans `app/_layout.tsx` avec un `Stack` (headers masqués).
 
 La prochaine étape du MVP est de stocker les réponses de l’onboarding en local, par exemple :
 
-- `alimcare.profile` → profil utilisateur (régime, pathologies, mensurations, activité)
+- `elya.profile` → profil utilisateur (régime, pathologies, mensurations, activité)
 
 Recommandation MVP : créer un hook dédié dans `hooks/` (ex: `useProfileStorage.ts`) qui :
 
