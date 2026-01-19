@@ -1,6 +1,6 @@
-# 🥗 Alim Care — MVP Mobile App
+# 🥗 Elya — MVP Mobile App
 
-Alim Care est une application **santé & nutrition personnalisée** (MVP). Le projet est construit avec **React Native + Expo** et la navigation **Expo Router** (file-based routing).
+Elya est une application **santé & nutrition personnalisée** (MVP). Le projet est construit avec **React Native + Expo** et la navigation **Expo Router** (file-based routing).
 
 L’objectif court terme est de collecter un profil santé via un **onboarding multi-étapes** et de le sauvegarder en **local (AsyncStorage)**, avant une migration future vers **Supabase**.
 
