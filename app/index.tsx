@@ -1,6 +1,6 @@
 // app/index.tsx
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar, ImageBackground } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Colors } from '../constants/Colors';
 
@@ -8,10 +8,13 @@ export default function LandingScreen() {
   const router = useRouter();
 
   return (
-    // --- IMPORTANT : POUR L'INSTANT, C'EST UN FOND COULEUR UNIE ---
-    // Nous le remplacerons par ImageBackground plus tard (voir instructions)
-    <View style={[styles.container, { backgroundColor: Colors.primary }]}>
+    <ImageBackground
+      source={require('../assets/Background_landing_page2.png')}
+      resizeMode="cover"
+      style={styles.container}
+    >
       <StatusBar barStyle="light-content" />
+      <View style={styles.overlay} />
       
       <SafeAreaView style={styles.safeArea}>
         
@@ -50,14 +53,18 @@ export default function LandingScreen() {
         </View>
 
       </SafeAreaView>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // Si tu utilises une image, la couleur de fond ici ne sera plus nécessaire
+    backgroundColor: Colors.primary, // fallback si l'image tarde à charger (web/dev)
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.22)',
   },
   safeArea: {
     flex: 1,
@@ -87,7 +94,7 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     // Utilisation de la couleur foncée de ta palette pour ce bouton spécifique
-    backgroundColor: Colors.textDark, 
+    backgroundColor: Colors.contrastMainII,
     paddingVertical: 20,
     borderRadius: 16,
     alignItems: 'center',

@@ -30,7 +30,7 @@ export default function RegisterScreen() {
         {/* Header avec bouton retour */}
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-            <ArrowLeft color={Colors.textDark} size={24} />
+            <ArrowLeft color={Colors.contrastMainII} size={24} />
           </TouchableOpacity>
         </View>
 
@@ -75,7 +75,7 @@ export default function RegisterScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.white,
   },
   scrollContainer: {
     flexGrow: 1,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: Colors.textDark,
+    color: Colors.contrastMainII,
     marginBottom: 40,
   },
   formContainer: {
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   legalText: {
     fontSize: 12,
-    color: Colors.textLight,
+    color: Colors.grayMedium,
     textAlign: 'center',
     marginBottom: 20,
     paddingHorizontal: 20,

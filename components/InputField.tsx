@@ -15,7 +15,7 @@ export const InputField: React.FC<InputFieldProps> = ({ placeholder, isPassword 
       <TextInput
         style={styles.input}
         placeholder={placeholder}
-        placeholderTextColor={Colors.gray}
+        placeholderTextColor={Colors.grayMedium}
         secureTextEntry={isPassword} // Si c'est un mot de passe, on cache le texte
         {...props} // On passe les autres props standard (onChangeText, value, etc.)
       />
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   input: {
-    backgroundColor: Colors.inputBackground, // fond gris clair
+    backgroundColor: Colors.gris, // fond gris clair
     borderRadius: 12, // bords arrondis
     paddingVertical: 15,
     paddingHorizontal: 20,
     fontSize: 16,
-    color: Colors.textDark,
+    color: Colors.contrastMainII,
   },
 });

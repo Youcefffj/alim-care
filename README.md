@@ -1,6 +1,6 @@
-# 🥗 Alim Care — MVP Mobile App
+# 🥗 Elya — MVP Mobile App
 
-Alim Care est une application **santé & nutrition personnalisée** (MVP). Le projet est construit avec **React Native + Expo** et la navigation **Expo Router** (file-based routing).
+Elya est une application **santé & nutrition personnalisée** (MVP). Le projet est construit avec **React Native + Expo** et la navigation **Expo Router** (file-based routing).
 
 L’objectif court terme est de collecter un profil santé via un **onboarding multi-étapes** et de le sauvegarder en **local (AsyncStorage)**, avant une migration future vers **Supabase**.
 
@@ -35,7 +35,7 @@ L’objectif court terme est de collecter un profil santé via un **onboarding m
 - **React** `19`
 - **Expo Router** `~6`
 - **AsyncStorage** `@react-native-async-storage/async-storage`
-- **UI/Icons**: `lucide-react-native`
+- **UI/Icons**: `lucide-react-native` / figma first
 - **Web**: `react-native-web`, `react-dom`, `@expo/metro-runtime`
 
 ---
@@ -148,7 +148,7 @@ Le layout global est dans `app/_layout.tsx` avec un `Stack` (headers masqués).
 
 La prochaine étape du MVP est de stocker les réponses de l’onboarding en local, par exemple :
 
-- `alimcare.profile` → profil utilisateur (régime, pathologies, mensurations, activité)
+- `elya.profile` → profil utilisateur (régime, pathologies, mensurations, activité)
 
 Recommandation MVP : créer un hook dédié dans `hooks/` (ex: `useProfileStorage.ts`) qui :
 
