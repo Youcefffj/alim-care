@@ -16,7 +16,7 @@ export const Colors = {
 
 export const Colors = {
   // --- Couleurs Principales ---
-  main: '#53BCB9',           // Teal / Turquoise 
+  primary: '#53BCB9',           // Teal / Turquoise 
   secondary: '#8A89C0',      // Violet / Lavande
   // --- Contrastes ---
   contrastMainI: '#0A828A',  // Sarcelle foncé

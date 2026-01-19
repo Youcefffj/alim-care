@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    color: Colors.background, // Texte blanc
+    color: Colors.white, // Texte blanc
     fontSize: 18,
     fontWeight: 'bold',
   },
