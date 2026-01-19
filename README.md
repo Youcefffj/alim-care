@@ -35,7 +35,7 @@ L’objectif court terme est de collecter un profil santé via un **onboarding m
 - **React** `19`
 - **Expo Router** `~6`
 - **AsyncStorage** `@react-native-async-storage/async-storage`
-- **UI/Icons**: `lucide-react-native`
+- **UI/Icons**: `lucide-react-native` / figma first
 - **Web**: `react-native-web`, `react-dom`, `@expo/metro-runtime`
 
 ---
