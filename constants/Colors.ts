@@ -31,4 +31,7 @@ export const Colors = {
   accentBlue: '#00AEFF',     // Bleu vif
   white: '#FFFFFF',
   black: '#000000',
+  // --- Couleurs boutons et filtres ---
+  greyLight: '#F1F5F5', // Gris clair pour les boutons
+  bluefilterbutton: '#70B9BE', // Bleu pour les boutons de filtre
 };

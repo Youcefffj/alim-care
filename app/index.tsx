@@ -9,7 +9,7 @@ export default function LandingScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/Background_landing_page.png')}
+      source={require('../assets/Background_landing_page2.png')}
       resizeMode="cover"
       style={styles.container}
     >
