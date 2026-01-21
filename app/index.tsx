@@ -21,7 +21,7 @@ export default function LandingScreen() {
         {/* Bouton "Plus tard" en haut à droite */}
         <TouchableOpacity 
           style={styles.skipButton} 
-          onPress={() => router.replace('/dashboard')} // On suppose que ça mène au dashboard
+          onPress={() => router.push('/onboarding')} // On suppose que ça mène au dashboard
         >
           <Text style={styles.skipText}>Plus tard</Text>
         </TouchableOpacity>
