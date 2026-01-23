@@ -22,6 +22,7 @@ export interface Question {
   min?: number; // Valeur minimum acceptée
   max?: number; // Valeur maximum acceptée
   suffix?: string; // Pour l'affichage des erreurs (ex: "ans", "cm", "mg/dL")
+  isMultiSelect?: boolean;
 }
 
 // 3. Vos données avec les nouveaux types et la logique de saut
@@ -47,7 +48,7 @@ export const Questions: Question[] = [
     title: "Pour mieux vous connaître",
     question: "Quel est votre âge ?",
     progress: 0.125,
-    placeholder: "Veuillez entrer votre âge",
+    placeholder: "Ex: 35",
     // BLINDAGE : Entre 18 et 120 ans
     min: 18,
     max: 120,
@@ -60,7 +61,7 @@ export const Questions: Question[] = [
     title: "Pour mieux vous connaître",
     question: "Quelle est votre taille ?",
     progress: 0.25,
-    placeholder: "Veuillez entrer votre taille en cm",
+    placeholder: "Ex: 175",
     // BLINDAGE : Entre 50cm et 250cm
     min: 50,
     max: 250,
@@ -91,10 +92,10 @@ export const Questions: Question[] = [
     title: "Votre situation glycémique", 
     question: "Pouvez-vous nous indiquer votre taux de glycémie moyen ?",
     progress: 0.5,
-    placeholder: "Veuillez entrer votre glycémie en mg/dL",
-    min: 40,
-    max: 600,
-    suffix: "mg/dL"
+    placeholder: "Ex: 19.5", // Exemple adapté aux décimales
+    min: 2,   
+    max: 35,
+    suffix: "mmol/L"
   },
   {
     id: 'glycemieObjective',
@@ -114,10 +115,10 @@ export const Questions: Question[] = [
     title: "Votre situation glycémique",
     question: "Quel est votre objectif glycémique ?",
     progress: 0.625,
-    placeholder: "Veuillez entrer votre objectif glycémique en mg/dL",
-    min: 70,
-    max: 200,
-    suffix: "mg/dL"
+    placeholder: "Ex: 7.0", // Exemple adapté aux décimales
+    min: 3, 
+    max: 15,
+    suffix: "mmol/L"
   },
 
 
@@ -137,6 +138,7 @@ export const Questions: Question[] = [
   {
     id: 'detailsPathologies',
     type: 'selection',
+    isMultiSelect: true,
     title: "Enjeux de santé associés",
     question: "Lesquelles ?",
     progress: 0.75,
@@ -166,6 +168,7 @@ export const Questions: Question[] = [
   {
     id: 'regimeAlimentaire',
     type: 'selection',
+    isMultiSelect: true,
     title: "Régime alimentaire",
     question: "Suivez-vous un régime alimentaire particulier ?",
     progress: 0.975,

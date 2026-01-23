@@ -1,40 +1,66 @@
-// components/InputField.tsx
 import React from 'react';
-import { TextInput, View, StyleSheet, TextInputProps } from 'react-native';
+import { TextInput, View, Text, StyleSheet, TextInputProps, ViewStyle, TextStyle } from 'react-native';
 import { Colors } from '../constants/Colors';
 
-// On définit les propriétés que notre champ peut accepter
 interface InputFieldProps extends TextInputProps {
   placeholder: string;
-  isPassword?: boolean;
+  unit?: string; // <--- NOUVEAU : On accepte une unité optionnelle
 }
 
-export const InputField: React.FC<InputFieldProps> = ({ placeholder, isPassword = false, ...props }) => {
+export const InputField: React.FC<InputFieldProps> = ({ 
+  placeholder, 
+  unit, 
+  style, 
+  ...props 
+}) => {
+  
+  // On sépare le style pour l'appliquer au conteneur (fond, bordure) 
+  // et non au texte directement, pour que l'unité soit aussi dans la bulle.
+  const flatStyle = StyleSheet.flatten(style);
+  
+  const containerStyle: ViewStyle = {
+    backgroundColor: flatStyle?.backgroundColor || '#F5F9FA',
+    borderRadius: flatStyle?.borderRadius || 16,
+    paddingVertical: flatStyle?.paddingVertical || 20,
+    paddingHorizontal: 20,
+    // Flexbox pour aligner input et unité
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...((flatStyle as any) || {}) // On garde les autres styles (marges etc)
+  };
+
+  const textInputStyle: TextStyle = {
+    flex: 1, // Prend toute la place disponible
+    fontSize: flatStyle?.fontSize || 18,
+    fontWeight: flatStyle?.fontWeight || '600',
+    color: flatStyle?.color || Colors.black,
+    textAlign: 'center', // On centre le texte tapé
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={containerStyle}>
       <TextInput
-        style={styles.input}
+        style={textInputStyle}
         placeholder={placeholder}
-        placeholderTextColor={Colors.grayMedium}
-        secureTextEntry={isPassword} // Si c'est un mot de passe, on cache le texte
-        {...props} // On passe les autres props standard (onChangeText, value, etc.)
+        placeholderTextColor="#94A3B8"
+        {...props}
       />
-      {/* Bonus: On pourrait ajouter l'icône "œil" pour le mot de passe ici plus tard */}
+      {/* Si une unité est fournie, on l'affiche à droite */}
+      {unit && (
+        <Text style={styles.unitText}>{unit}</Text>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: 15,
-    width: '100%',
-  },
-  input: {
-    backgroundColor: Colors.gris, // fond gris clair
-    borderRadius: 12, // bords arrondis
-    paddingVertical: 15,
-    paddingHorizontal: 20,
+  unitText: {
     fontSize: 16,
-    color: Colors.contrastMainII,
+    fontWeight: '600',
+    color: '#94A3B8', // Gris un peu discret
+    marginLeft: 8,    // Petit espace entre le chiffre et l'unité
+    position: 'absolute', // Astuce : on le fixe à droite pour ne pas décaler le centrage
+    right: 20,
   },
 });
