@@ -34,8 +34,8 @@ export default function QuestionnaireScreen() {
   
   // États
   const [history, setHistory] = useState<number[]>([0]); 
-  const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
-  
+  const [answers, setAnswers] = useState<Record<string, string | string[] | Record<string, string>>>({});
+
   // On met true par défaut pour ne pas afficher la Q1 le temps de charger la sauvegarde
   const [isLoading, setIsLoading] = useState(true); 
 
@@ -96,7 +96,23 @@ export default function QuestionnaireScreen() {
     Alert.alert("Reset", "Mémoire effacée, retour au début.");
 };
 
-  // --- Logique de saisie sécurisée (Inchangée) ---
+// --- Gestion du Double Input (Nom / Prénom) ---
+  const handleDoubleInput = (key: string, text: string) => {
+    // 1. On récupère l'objet actuel (ou vide s'il n'existe pas encore)
+    // On force le type "as Record..." pour que TS comprenne
+    const currentAnswerObj = (answers[currentQuestion.id] as Record<string, string>) || {};
+
+    // 2. On met à jour uniquement la clé modifiée (ex: 'firstname')
+    const newAnswerObj = {
+      ...currentAnswerObj,
+      [key]: text
+    };
+
+    // 3. On sauvegarde
+    setAnswers(prev => ({ ...prev, [currentQuestion.id]: newAnswerObj }));
+  };
+
+  // --- Logique de saisie sécurisée ---
   const handleNumericInput = (text: string) => {
     const numericValue = text.replace(/[^0-9.,]/g, '');
     handleOptionSelect(numericValue);
@@ -129,6 +145,20 @@ export default function QuestionnaireScreen() {
     if (!selectedValue) {
       Alert.alert("Action requise", "Veuillez sélectionner une option ou remplir le champ.");
       return;
+    }
+    if (currentQuestion.type === 'double_input' && currentQuestion.inputs) {
+      const currentVal = selectedValue as Record<string, string> | undefined;
+      
+      // On vérifie si l'objet existe ET si les 2 clés sont remplies
+      // On boucle sur les champs requis (inputs) définie dans data
+      const isMissingField = currentQuestion.inputs.some(field => 
+        !currentVal || !currentVal[field.key] || currentVal[field.key].trim() === ''
+      );
+
+      if (isMissingField) {
+        Alert.alert("Action requise", "Veuillez remplir votre prénom et votre nom.");
+        return;
+      }
     }
 
     // 2. Validation Min/Max pour les Inputs
@@ -172,10 +202,6 @@ export default function QuestionnaireScreen() {
       setHistory([...history, nextIndex]);
     } else {
       console.log("Fin :", answers);
-      
-      // 👇 OPTIONNEL : Nettoyer le stockage une fois fini ?
-      // await AsyncStorage.removeItem(STORAGE_KEY_ANSWERS);
-      // await AsyncStorage.removeItem(STORAGE_KEY_HISTORY);
 
       Alert.alert("Validation", JSON.stringify(answers, null, 2), 
         [{ text: "OK", onPress: () => router.push('/dashboard') }]
@@ -270,6 +296,54 @@ export default function QuestionnaireScreen() {
                       color: Colors.black
                     }}
                   />
+                )}
+
+                {/* CAS 3 : Double Input (Nom / Prénom) */}
+                {currentQuestion.type === 'double_input' && currentQuestion.inputs && (
+                  <View style={{ gap: 15 }}> 
+                    {currentQuestion.inputs.map((field) => {
+                      
+                      // On récupère la valeur actuelle de ce champ précis
+                      // (selectedValue est l'objet global {firstname:..., lastname:...})
+                      const valObject = (selectedValue as Record<string, string>) || {};
+                      const fieldValue = valObject[field.key] || '';
+
+                      return (
+                        <View key={field.key}>
+                          {/* Petit label au dessus pour savoir ce qu'on tape */}
+                          <Text style={{ 
+                            marginLeft: 10, 
+                            marginBottom: 5, 
+                            fontWeight: '600', 
+                            color: Colors.grayMedium || '#64748B' 
+                          }}>
+                            {field.label}
+                          </Text>
+                          
+                          <InputField 
+                            value={fieldValue}
+                            onChangeText={(text) => handleDoubleInput(field.key, text)}
+                            placeholder={field.placeholder}
+                            // On désactive le clavier numérique ici
+                            keyboardType='default'
+                            // Auto-capitalisation pour les noms propres
+                            autoCapitalize='words'
+                            style={{
+                              backgroundColor: '#F5F9FA',
+                              borderRadius: 16,
+                              paddingVertical: 18,
+                              // On aligne à gauche pour les noms, c'est souvent plus joli
+                              textAlign: 'left', 
+                              paddingHorizontal: 20,
+                              fontSize: 18,
+                              fontWeight: '600',
+                              color: Colors.black
+                            }}
+                          />
+                        </View>
+                      );
+                    })}
+                  </View>
                 )}
               </View>
             </View>

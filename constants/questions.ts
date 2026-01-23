@@ -1,16 +1,15 @@
 // constants/questions.ts
 
 // 1. On définit les types de questions possibles
-export type QuestionType = 'selection' | 'dropdown' | 'input';
+export type QuestionType = 'selection' | 'dropdown' | 'input' | 'double_input';
 
 export interface Option {
   label: string;
   value: string;
   isFullWidth?: boolean; 
-  nextId?: string; // Pour le saut conditionnel
+  nextId?: string; 
 }
 
-// 2. On met à jour l'interface Question
 export interface Question {
   id: string;
   type: QuestionType;
@@ -19,22 +18,40 @@ export interface Question {
   progress: number;
   options?: Option[]; 
   placeholder?: string;
-  min?: number; // Valeur minimum acceptée
-  max?: number; // Valeur maximum acceptée
-  suffix?: string; // Pour l'affichage des erreurs (ex: "ans", "cm", "mg/dL")
+  min?: number;
+  max?: number;
+  suffix?: string;
   isMultiSelect?: boolean;
+  
+  // 👇 NOUVEAU : Pour définir les 2 champs du double input
+  inputs?: { 
+    key: string;       // ex: 'firstname'
+    label: string;     // ex: 'Prénom'
+    placeholder: string; 
+  }[];
 }
 
-// 3. Vos données avec les nouveaux types et la logique de saut
 export const Questions: Question[] = [
-
+  
+  // ----- Identité -----
+  {
+    id: 'identity',
+    type: 'double_input',
+    title: "Bienvenue",
+    question: "Comment vous appelez-vous ?",
+    progress: 0,
+    inputs: [
+      { key: 'firstname', label: 'Prénom', placeholder: "Ex: Camille" },
+      { key: 'lastname', label: 'Nom', placeholder: "Ex: Dupont" }
+    ]
+  },
   /// ----- Informations Personnelles -----    
   {
     id: 'genre',
     type: 'selection',
     title: "Pour mieux vous connaître",
     question: "Quel est votre genre ?",
-    progress: 0,
+    progress: 0.05,
     options: [
       { label: "Femme", value: "Femme" },
       { label: "Homme", value: "Homme" },
