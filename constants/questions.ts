@@ -110,9 +110,9 @@ export const Questions: Question[] = [
     question: "Pouvez-vous nous indiquer votre taux de glycémie moyen ?",
     progress: 0.5,
     placeholder: "Ex: 19.5", // Exemple adapté aux décimales
-    min: 2,   
-    max: 35,
-    suffix: "mmol/L"
+    min: 20,   
+    max: 1000,
+    suffix: "mg/dL"
   },
   {
     id: 'glycemieObjective',
@@ -133,9 +133,9 @@ export const Questions: Question[] = [
     question: "Quel est votre objectif glycémique ?",
     progress: 0.625,
     placeholder: "Ex: 7.0", // Exemple adapté aux décimales
-    min: 3, 
-    max: 15,
-    suffix: "mmol/L"
+    min: 70, 
+    max: 250,
+    suffix: "mg/dL"
   },
 
 
