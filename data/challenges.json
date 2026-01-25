@@ -1,0 +1,92 @@
+[
+    {
+      "id": "1",
+      "title": "30 minutes de marche tranquille",
+      "description": "Dans les 30 à 60 minutes après un repas pour réguler la glycémie.",
+      "icon": "Timer"
+    },
+    {
+      "id": "2",
+      "title": "Hydratation Optimale",
+      "description": "Boire 1,5L d'eau aujourd'hui pour aider l'élimination rénale.",
+      "icon": "Droplet"
+    },
+    {
+      "id": "3",
+      "title": "10 minutes de Yoga matinal",
+      "description": "Réveiller le corps en douceur et réduire le stress.",
+      "icon": "Sunrise"
+    },
+    {
+      "id": "4",
+      "title": "Pas de sucre ajouté",
+      "description": "Aujourd'hui, évitez tout produit transformé contenant du sucre.",
+      "icon": "Ban"
+    },
+    {
+      "id": "5",
+      "title": "Escaliers au lieu de l'ascenseur",
+      "description": "Un petit effort cardio à chaque occasion de la journée.",
+      "icon": "ArrowUpCircle"
+    },
+    {
+      "id": "6",
+      "title": "Déjeuner sans écran",
+      "description": "Mangez en pleine conscience pour mieux ressentir la satiété.",
+      "icon": "SmartphoneOff"
+    },
+    {
+      "id": "7",
+      "title": "S'étirer après le travail",
+      "description": "5 minutes d'étirements pour relâcher les tensions du dos.",
+      "icon": "Accessibility"
+    },
+    {
+      "id": "8",
+      "title": "5000 pas avant midi",
+      "description": "Lancez votre métabolisme dès le début de la journée.",
+      "icon": "Footprints"
+    },
+    {
+      "id": "9",
+      "title": "Zéro grignotage",
+      "description": "Tenez bon entre les repas principaux pour reposer votre pancréas.",
+      "icon": "ShieldCheck"
+    },
+    {
+      "id": "10",
+      "title": "Préparer ses repas de demain",
+      "description": "Prenez 20 min pour organiser votre menu santé de demain.",
+      "icon": "Calendar"
+    },
+    {
+      "id": "11",
+      "title": "Respiration abdominale",
+      "description": "Faites 5 minutes de cohérence cardiaque pour stabiliser votre cortisol.",
+      "icon": "Wind"
+    },
+    {
+      "id": "12",
+      "title": "Tester un nouveau légume",
+      "description": "Découvrez une nouvelle saveur et de nouveaux nutriments.",
+      "icon": "ShoppingBasket"
+    },
+    {
+      "id": "13",
+      "title": "Dormir avant 23h",
+      "description": "Un sommeil de qualité est essentiel pour l'équilibre glycémique.",
+      "icon": "Moon"
+    },
+    {
+      "id": "14",
+      "title": "15 squats toutes les 2 heures",
+      "description": "Activez vos muscles pour consommer le glucose circulant.",
+      "icon": "Activity"
+    },
+    {
+      "id": "15",
+      "title": "Consulter son suivi",
+      "description": "Prenez le temps d'analyser vos courbes de la semaine.",
+      "icon": "TrendingUp"
+    }
+  ]

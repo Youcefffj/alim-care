@@ -204,7 +204,7 @@ export default function QuestionnaireScreen() {
       console.log("Fin :", answers);
 
       Alert.alert("Validation", JSON.stringify(answers, null, 2), 
-        [{ text: "OK", onPress: () => router.push('/dashboard') }]
+        [{ text: "OK", onPress: () => router.push('/(tabs)/dashboard') }]
       );
     }
   };

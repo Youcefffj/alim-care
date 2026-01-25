@@ -1,0 +1,772 @@
+[
+    {
+      "id": "1",
+      "title": "Tarte Aubergine tomate",
+      "image": "https://images.unsplash.com/photo-1593967858208-67ddb5b4c406",
+      "time": "40 Min",
+      "servings": 4,
+      "description": "Cette tarte vous fera retourner en enfance, avec son goût savoureux et unique. Un mélange parfait de légumes du soleil sur une pâte croustillante, idéale pour un repas léger et gourmand.",
+      "carbs": "42g",
+      "proteins": "19g",
+      "calories": "320 Kcal",
+      "fat": "23g",
+      "ingredients": [
+        "1 pâte brisée (ou pâte feuilletée)",
+        "1 grosse aubergine",
+        "3 à 4 tomates bien mûres",
+        "120 g de fromage râpé (emmental, mozzarella ou comté)",
+        "2 oeufs",
+        "20 cl de crème fraîche (ou crème végétale)",
+        "1 gousse d'ail",
+        "Huile d'olive",
+        "Herbes de Provence ou origan",
+        "Sel, poivre",
+        "Quelques feuilles de basilic frais (optionnel, pour le dressage)"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer l'aubergine",
+          "text": "Laver l'aubergine et la couper en fines rondelles. Les faire revenir à la poêle avec un filet d'huile d'olive pendant 5-7 minutes, jusqu'à ce qu'elles soient tendres. Saler légèrement."
+        },
+        {
+          "step": 2,
+          "title": "Préparer l'appareil",
+          "text": "Dans un bol, battre les oeufs avec la crème. Ajouter l'ail finement haché, du sel, du poivre et une pincée d'herbes de Provence."
+        },
+        {
+          "step": 3,
+          "title": "Monter la tarte",
+          "text": "Préchauffer le four à 180°C. Étaler la pâte dans un moule à tarte et la piquer à la fourchette. Parsemer le fond de fromage râpé. Disposer les rondelles d'aubergine et de tomate en alternance (en rosace ou en couches). Verser l'appareil par-dessus."
+        },
+        {
+          "step": 4,
+          "title": "Cuisson",
+          "text": "Enfourner pour 35 à 40 minutes, jusqu'à ce que la tarte soit bien dorée."
+        },
+        {
+          "step": 5,
+          "title": "Finition",
+          "text": "À la sortie du four, ajouter quelques feuilles de basilic frais et un léger filet d'huile d'olive."
+        }
+      ],
+      "tips": [
+        "Pour une version plus légère : utiliser une crème allégée ou végétale.",
+        "Pour plus de goût : ajouter un peu de moutarde ou de pesto sur le fond de tarte.",
+        "Délicieuse chaude ou froide, avec une salade verte."
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Quiche féta et épinards",
+      "image": "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f",
+      "time": "45 Min",
+      "servings": 6,
+      "description": "Une alliance méditerranéenne riche en fer et en saveurs pour un repas léger. Les épinards fondants se marient parfaitement avec le côté salé et crémeux de la féta.",
+      "carbs": "29g",
+      "proteins": "18g",
+      "calories": "310 Kcal",
+      "fat": "22g",
+      "ingredients": [
+        "1 pâte brisée",
+        "300g d'épinards frais (ou surgelés)",
+        "150g de féta",
+        "3 oeufs",
+        "20cl de crème fraîche légère",
+        "1 oignon",
+        "1 gousse d'ail",
+        "Noix de muscade",
+        "Sel, poivre",
+        "Huile d'olive"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer les épinards",
+          "text": "Laver les épinards frais. Dans une grande poêle, faire chauffer un filet d'huile d'olive et y faire revenir l'oignon émincé. Ajouter les épinards et les faire tomber 5 minutes jusqu'à ce qu'ils soient fondants. Bien égoutter pour retirer l'excès d'eau."
+        },
+        {
+          "step": 2,
+          "title": "Préparer l'appareil",
+          "text": "Dans un saladier, battre les oeufs avec la crème. Ajouter l'ail pressé, une pincée de noix de muscade, sel et poivre. Émietter la féta et l'incorporer au mélange avec les épinards égouttés."
+        },
+        {
+          "step": 3,
+          "title": "Montage",
+          "text": "Préchauffer le four à 180°C. Étaler la pâte dans un moule, piquer le fond à la fourchette. Verser la préparation épinards-féta de manière uniforme."
+        },
+        {
+          "step": 4,
+          "title": "Cuisson",
+          "text": "Enfourner pour 35-40 minutes jusqu'à ce que la quiche soit dorée et que l'appareil soit bien pris. Laisser tiédir 5 minutes avant de démouler."
+        }
+      ],
+      "tips": [
+        "Égouttez bien les épinards pour éviter de détremper la pâte.",
+        "Vous pouvez ajouter des pignons de pin pour le croquant.",
+        "Se conserve 2 jours au réfrigérateur, réchauffer au four 10 min."
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Saumon et purée de brocolis",
+      "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288",
+      "time": "25 Min",
+      "servings": 2,
+      "description": "Un plat complet riche en Oméga-3 et à très faible indice glycémique. Le saumon rosé se marie parfaitement avec la douceur de la purée de brocolis, pour un repas sain et savoureux.",
+      "carbs": "12g",
+      "proteins": "32g",
+      "calories": "380 Kcal",
+      "fat": "24g",
+      "ingredients": [
+        "2 pavés de saumon (150g chacun)",
+        "500g de brocolis",
+        "2 cuillères à soupe de crème fraîche légère",
+        "1 citron",
+        "Aneth frais",
+        "1 gousse d'ail",
+        "Huile d'olive",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Cuire les brocolis",
+          "text": "Détailler les brocolis en petits bouquets. Les cuire à la vapeur pendant 12-15 minutes jusqu'à ce qu'ils soient bien tendres."
+        },
+        {
+          "step": 2,
+          "title": "Préparer la purée",
+          "text": "Mixer les brocolis cuits avec la crème, l'ail pressé, sel et poivre. Ajuster la consistance avec un peu d'eau de cuisson si nécessaire. Réserver au chaud."
+        },
+        {
+          "step": 3,
+          "title": "Cuire le saumon",
+          "text": "Assaisonner les pavés de saumon. Dans une poêle chaude avec un filet d'huile d'olive, saisir le saumon côté peau 4 minutes, puis retourner et cuire 2-3 minutes côté chair. Le saumon doit rester rosé à coeur."
+        },
+        {
+          "step": 4,
+          "title": "Dressage",
+          "text": "Dresser la purée de brocolis dans l'assiette, déposer le saumon par-dessus. Arroser d'un filet de citron et parsemer d'aneth frais ciselé."
+        }
+      ],
+      "tips": [
+        "Pressez un demi citron vert sur le saumon juste avant de servir.",
+        "Pour plus de saveur, faites mariner le saumon 30 min dans huile d'olive, citron et aneth.",
+        "Le brocoli peut être remplacé par des petits pois pour varier."
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Salade de lentilles et feta",
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+      "time": "20 Min",
+      "servings": 4,
+      "description": "Les lentilles offrent des sucres lents parfaits pour une glycémie stable. Cette salade fraîche et nourrissante combine protéines végétales et fromage pour un repas complet et équilibré.",
+      "carbs": "42g",
+      "proteins": "15g",
+      "calories": "290 Kcal",
+      "fat": "10g",
+      "ingredients": [
+        "400g de lentilles vertes cuites (ou 200g sèches)",
+        "200g de tomates cerises",
+        "1 oignon rouge",
+        "150g de feta",
+        "1 concombre",
+        "Persil frais",
+        "3 cuillères à soupe d'huile d'olive",
+        "2 cuillères à soupe de vinaigre balsamique",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer les lentilles",
+          "text": "Si vous utilisez des lentilles sèches, les rincer et les cuire 20-25 minutes dans de l'eau salée. Égoutter et laisser refroidir."
+        },
+        {
+          "step": 2,
+          "title": "Préparer les légumes",
+          "text": "Couper les tomates cerises en deux. Émincer finement l'oignon rouge. Couper le concombre en petits dés. Ciseler le persil."
+        },
+        {
+          "step": 3,
+          "title": "Préparer la vinaigrette",
+          "text": "Dans un petit bol, mélanger l'huile d'olive, le vinaigre balsamique, sel et poivre."
+        },
+        {
+          "step": 4,
+          "title": "Assemblage",
+          "text": "Dans un grand saladier, mélanger les lentilles froides, les tomates, l'oignon, le concombre. Arroser de vinaigrette et mélanger. Émietter la feta par-dessus et parsemer de persil."
+        }
+      ],
+      "tips": [
+        "Ajoutez des noix ou des graines de tournesol pour le croquant.",
+        "Les lentilles corail fonctionnent aussi très bien.",
+        "Se conserve 2 jours au frais, assaisonner juste avant de servir."
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Poulet au citron et asperges",
+      "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+      "time": "30 Min",
+      "servings": 2,
+      "description": "Un classique indémodable, léger et protéiné. Le poulet tendre et juteux se marie à merveille avec les asperges croquantes et la fraîcheur du citron.",
+      "carbs": "10g",
+      "proteins": "38g",
+      "calories": "320 Kcal",
+      "fat": "12g",
+      "ingredients": [
+        "2 blancs de poulet",
+        "1 botte d'asperges vertes (environ 500g)",
+        "2 citrons jaunes",
+        "3 gousses d'ail",
+        "Thym frais",
+        "Huile d'olive",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer les asperges",
+          "text": "Casser la partie dure des asperges (elles cassent naturellement au bon endroit). Les laver. Dans une poêle avec un filet d'huile, les faire sauter 8-10 minutes à feu moyen en les retournant régulièrement."
+        },
+        {
+          "step": 2,
+          "title": "Mariner le poulet",
+          "text": "Presser le jus d'un citron. Mélanger avec 2 cuillères d'huile d'olive, l'ail émincé, le thym, sel et poivre. Enrober les blancs de poulet et laisser mariner 10 minutes."
+        },
+        {
+          "step": 3,
+          "title": "Cuire le poulet",
+          "text": "Dans une poêle chaude, cuire les blancs de poulet 6-7 minutes de chaque côté jusqu'à ce qu'ils soient dorés et cuits à coeur. Arroser régulièrement avec la marinade."
+        },
+        {
+          "step": 4,
+          "title": "Dressage",
+          "text": "Trancher le poulet en escalopes. Dresser avec les asperges, des rondelles de citron frais et un filet du jus de cuisson."
+        }
+      ],
+      "tips": [
+        "Utilisez des asperges fraîches de saison pour plus de saveur.",
+        "Le poulet peut être remplacé par des escalopes de dinde.",
+        "Accompagnez de riz complet pour un repas plus consistant."
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Omelette aux champignons",
+      "image": "https://images.unsplash.com/photo-1510693206972-df098062cb71",
+      "time": "15 Min",
+      "servings": 2,
+      "description": "Rapide et efficace pour un petit-déjeuner salé ou un dîner pressé. Cette omelette moelleuse aux champignons fondants est un classique réconfortant à faible indice glycémique.",
+      "carbs": "5g",
+      "proteins": "20g",
+      "calories": "240 Kcal",
+      "fat": "16g",
+      "ingredients": [
+        "4 oeufs",
+        "200g de champignons de Paris",
+        "1 échalote",
+        "Persil frais",
+        "20g de beurre",
+        "2 cuillères à soupe de crème fraîche (optionnel)",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer les champignons",
+          "text": "Nettoyer les champignons et les émincer. Émincer finement l'échalote. Dans une poêle, faire fondre la moitié du beurre et y faire revenir l'échalote puis les champignons 5-6 minutes jusqu'à ce qu'ils soient dorés. Saler, poivrer, réserver."
+        },
+        {
+          "step": 2,
+          "title": "Préparer les oeufs",
+          "text": "Battre les oeufs dans un bol avec la crème (si utilisée), sel et poivre. Ajouter le persil ciselé."
+        },
+        {
+          "step": 3,
+          "title": "Cuire l'omelette",
+          "text": "Dans la même poêle, faire fondre le reste du beurre à feu moyen. Verser les oeufs battus et laisser prendre 1-2 minutes sans remuer. Ajouter les champignons sur une moitié."
+        },
+        {
+          "step": 4,
+          "title": "Finition",
+          "text": "Replier l'omelette en deux et la faire glisser dans l'assiette. Elle doit rester baveuse à l'intérieur. Parsemer de persil frais."
+        }
+      ],
+      "tips": [
+        "Ne surcuisez pas les oeufs pour garder le moelleux.",
+        "Variez avec des champignons forestiers pour plus de goût.",
+        "Ajoutez du fromage râpé pour plus de gourmandise."
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Cabillaud en croûte d'herbes",
+      "image": "https://images.unsplash.com/photo-1534604973900-c41ab4c287ba",
+      "time": "25 Min",
+      "servings": 2,
+      "description": "Le poisson blanc est l'allié idéal pour une digestion facile. Ce cabillaud en croûte dorée aux herbes fraîches est aussi beau que bon, parfait pour un repas léger et raffiné.",
+      "carbs": "15g",
+      "proteins": "28g",
+      "calories": "210 Kcal",
+      "fat": "8g",
+      "ingredients": [
+        "2 dos de cabillaud (150g chacun)",
+        "50g de chapelure complète",
+        "Herbes fraîches (persil, ciboulette, aneth)",
+        "1 citron",
+        "2 cuillères à soupe d'huile d'olive",
+        "1 gousse d'ail",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer la croûte",
+          "text": "Préchauffer le four à 200°C. Mélanger la chapelure avec les herbes fraîches ciselées, l'ail pressé, le zeste d'un demi citron, l'huile d'olive, sel et poivre."
+        },
+        {
+          "step": 2,
+          "title": "Préparer le poisson",
+          "text": "Disposer les dos de cabillaud dans un plat allant au four. Assaisonner légèrement de sel et poivre."
+        },
+        {
+          "step": 3,
+          "title": "Assembler",
+          "text": "Répartir le mélange chapelure-herbes sur le dessus des filets en appuyant légèrement pour faire adhérer."
+        },
+        {
+          "step": 4,
+          "title": "Cuisson",
+          "text": "Enfourner pour 15-18 minutes jusqu'à ce que la croûte soit dorée et le poisson cuit à coeur. Servir avec des quartiers de citron."
+        }
+      ],
+      "tips": [
+        "Servez avec une fondue de poireaux ou des légumes vapeur.",
+        "Le lieu noir ou le merlan fonctionnent aussi très bien.",
+        "Ajoutez des amandes effilées dans la croûte pour le croquant."
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Chili con carne léger",
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246",
+      "time": "50 Min",
+      "servings": 4,
+      "description": "Version sans riz, riche en fibres grâce aux haricots rouges. Ce chili savoureux et épicé est parfait pour les amateurs de cuisine mexicaine qui veulent garder le contrôle de leur glycémie.",
+      "carbs": "35g",
+      "proteins": "30g",
+      "calories": "410 Kcal",
+      "fat": "15g",
+      "ingredients": [
+        "400g de boeuf haché 5% MG",
+        "400g de haricots rouges (en boîte, égouttés)",
+        "2 poivrons (rouge et vert)",
+        "400g de tomates concassées",
+        "1 gros oignon",
+        "3 gousses d'ail",
+        "2 cuillères à café de cumin",
+        "1 cuillère à café de paprika fumé",
+        "Piment de Cayenne (selon goût)",
+        "Huile d'olive",
+        "Sel, poivre",
+        "Coriandre fraîche"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Faire revenir la viande",
+          "text": "Dans une grande cocotte, faire chauffer l'huile d'olive. Faire revenir le boeuf haché à feu vif en l'émiettant, jusqu'à ce qu'il soit bien doré. Réserver."
+        },
+        {
+          "step": 2,
+          "title": "Préparer la base",
+          "text": "Dans la même cocotte, faire revenir l'oignon émincé et les poivrons coupés en dés pendant 5 minutes. Ajouter l'ail pressé, le cumin, le paprika et le piment. Mélanger 1 minute."
+        },
+        {
+          "step": 3,
+          "title": "Mijoter",
+          "text": "Remettre la viande, ajouter les tomates concassées et les haricots rouges égouttés. Saler, poivrer. Porter à ébullition puis baisser le feu et laisser mijoter 30-35 minutes à couvert."
+        },
+        {
+          "step": 4,
+          "title": "Servir",
+          "text": "Rectifier l'assaisonnement. Servir bien chaud, parsemé de coriandre fraîche. Accompagner de crème fraîche ou de guacamole."
+        }
+      ],
+      "tips": [
+        "Doublez la dose de cumin pour plus de saveur.",
+        "Se congèle très bien pour des repas préparés à l'avance.",
+        "Servez avec du riz de chou-fleur pour une version low-carb."
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Ratatouille et oeuf poché",
+      "image": "https://images.unsplash.com/photo-1572453800999-e8d2d4d0c7ee",
+      "time": "45 Min",
+      "servings": 4,
+      "description": "Le plein de légumes du soleil avec une source de protéines simple. Cette ratatouille confite accompagnée d'un oeuf poché est un concentré de saveurs méditerranéennes.",
+      "carbs": "18g",
+      "proteins": "12g",
+      "calories": "190 Kcal",
+      "fat": "10g",
+      "ingredients": [
+        "2 courgettes",
+        "1 aubergine",
+        "2 poivrons (rouge et jaune)",
+        "4 tomates mûres",
+        "1 oignon",
+        "4 gousses d'ail",
+        "Huile d'olive",
+        "Herbes de Provence",
+        "4 oeufs",
+        "Basilic frais",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer les légumes",
+          "text": "Couper tous les légumes en cubes de taille similaire (environ 2cm). Émincer l'oignon et l'ail."
+        },
+        {
+          "step": 2,
+          "title": "Cuire la ratatouille",
+          "text": "Dans une grande cocotte, faire chauffer l'huile d'olive. Faire revenir l'oignon 3 minutes, puis ajouter l'aubergine et les poivrons. Cuire 10 minutes en remuant. Ajouter les courgettes, les tomates, l'ail et les herbes. Saler, poivrer."
+        },
+        {
+          "step": 3,
+          "title": "Mijoter",
+          "text": "Couvrir et laisser mijoter 25-30 minutes à feu doux, en remuant de temps en temps, jusqu'à ce que les légumes soient confits."
+        },
+        {
+          "step": 4,
+          "title": "Pocher les oeufs",
+          "text": "Porter une casserole d'eau vinaigrée à frémissement. Créer un tourbillon et y déposer délicatement chaque oeuf. Cuire 3 minutes pour un jaune coulant."
+        },
+        {
+          "step": 5,
+          "title": "Dressage",
+          "text": "Servir la ratatouille dans des assiettes creuses, déposer un oeuf poché au centre et parsemer de basilic frais."
+        }
+      ],
+      "tips": [
+        "Laissez mijoter longtemps pour que les légumes confisent.",
+        "La ratatouille est encore meilleure réchauffée le lendemain.",
+        "Accompagnez de pain grillé pour saucer."
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Pavé de thon et haricots verts",
+      "image": "https://images.unsplash.com/photo-1501595091296-3a970afb3ff9",
+      "time": "15 Min",
+      "servings": 2,
+      "description": "Un plat minute pour les sportifs, riche en fer et en protéines. Le thon mi-cuit aux graines de sésame se marie parfaitement avec les haricots verts croquants.",
+      "carbs": "14g",
+      "proteins": "40g",
+      "calories": "350 Kcal",
+      "fat": "14g",
+      "ingredients": [
+        "2 pavés de thon frais (150g chacun)",
+        "300g de haricots verts",
+        "3 cuillères à soupe de graines de sésame",
+        "3 cuillères à soupe de sauce soja",
+        "1 cuillère à soupe d'huile de sésame",
+        "1 morceau de gingembre frais",
+        "1 gousse d'ail",
+        "Ciboulette"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Cuire les haricots",
+          "text": "Faire cuire les haricots verts 8-10 minutes à la vapeur ou dans l'eau bouillante salée. Ils doivent rester croquants. Égoutter et réserver."
+        },
+        {
+          "step": 2,
+          "title": "Préparer le thon",
+          "text": "Mélanger la sauce soja avec le gingembre râpé et l'ail pressé. Badigeonner les pavés de thon avec ce mélange puis les enrober de graines de sésame sur toutes les faces."
+        },
+        {
+          "step": 3,
+          "title": "Saisir le thon",
+          "text": "Dans une poêle très chaude avec l'huile de sésame, saisir le thon 1 minute par face maximum. Le coeur doit rester rosé."
+        },
+        {
+          "step": 4,
+          "title": "Dressage",
+          "text": "Trancher le thon en lamelles. Servir sur un lit de haricots verts, arroser du reste de marinade et parsemer de ciboulette."
+        }
+      ],
+      "tips": [
+        "Snackez le thon juste 1 min par face pour qu'il reste rosé.",
+        "Le thon peut être remplacé par du saumon.",
+        "Ajoutez quelques gouttes d'huile pimentée pour plus de caractère."
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Curry de pois chiches",
+      "image": "https://images.unsplash.com/photo-1585937421612-71100520661e",
+      "time": "30 Min",
+      "servings": 4,
+      "description": "Un plat végétarien réconfortant et épicé. Ce curry crémeux aux pois chiches et épinards est riche en protéines végétales et en fibres, idéal pour un repas équilibré.",
+      "carbs": "48g",
+      "proteins": "14g",
+      "calories": "320 Kcal",
+      "fat": "12g",
+      "ingredients": [
+        "2 boîtes de pois chiches (480g égouttés)",
+        "400ml de lait de coco",
+        "200g d'épinards frais",
+        "2 cuillères à soupe de pâte de curry (rouge ou jaune)",
+        "1 oignon",
+        "3 gousses d'ail",
+        "1 morceau de gingembre",
+        "400g de tomates concassées",
+        "Huile de coco",
+        "Coriandre fraîche",
+        "1 citron vert"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Faire la base",
+          "text": "Dans une grande poêle ou wok, faire chauffer l'huile de coco. Y faire revenir l'oignon émincé 3 minutes. Ajouter l'ail et le gingembre râpés, puis la pâte de curry. Faire revenir 1 minute jusqu'à ce que les arômes se libèrent."
+        },
+        {
+          "step": 2,
+          "title": "Ajouter les pois chiches",
+          "text": "Incorporer les tomates concassées et les pois chiches égouttés. Mélanger et laisser mijoter 5 minutes."
+        },
+        {
+          "step": 3,
+          "title": "Crémer",
+          "text": "Verser le lait de coco, mélanger et laisser mijoter 15 minutes à feu moyen jusqu'à ce que la sauce épaississe légèrement."
+        },
+        {
+          "step": 4,
+          "title": "Finir",
+          "text": "Ajouter les épinards et mélanger jusqu'à ce qu'ils soient tombés (2-3 minutes). Rectifier l'assaisonnement. Servir avec de la coriandre fraîche et un quartier de citron vert."
+        }
+      ],
+      "tips": [
+        "Pressez un citron vert au dernier moment pour plus de fraîcheur.",
+        "Servez avec du riz basmati ou du riz de chou-fleur.",
+        "Se conserve 3 jours au frais et se congèle très bien."
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Poêlée de tofu et légumes",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+      "time": "25 Min",
+      "servings": 2,
+      "description": "Idéal pour découvrir le tofu avec une marinade savoureuse. Cette poêlée colorée de légumes croquants et de tofu doré est un repas complet, sain et délicieux.",
+      "carbs": "22g",
+      "proteins": "18g",
+      "calories": "280 Kcal",
+      "fat": "14g",
+      "ingredients": [
+        "300g de tofu ferme",
+        "2 carottes",
+        "200g de brocolis",
+        "1 poivron rouge",
+        "3 cuillères à soupe de sauce soja",
+        "1 cuillère à soupe de miel",
+        "1 cuillère à soupe d'huile de sésame",
+        "2 gousses d'ail",
+        "Gingembre frais",
+        "Graines de sésame"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer le tofu",
+          "text": "Égoutter le tofu et le presser entre deux torchons pour retirer l'excès d'eau. Le couper en cubes de 2cm."
+        },
+        {
+          "step": 2,
+          "title": "Mariner",
+          "text": "Mélanger la sauce soja, le miel, l'ail pressé et le gingembre râpé. Faire mariner le tofu 10 minutes minimum."
+        },
+        {
+          "step": 3,
+          "title": "Cuire le tofu",
+          "text": "Dans un wok ou une grande poêle, faire chauffer l'huile de sésame. Y faire dorer les cubes de tofu 5-6 minutes en les retournant. Réserver."
+        },
+        {
+          "step": 4,
+          "title": "Sauter les légumes",
+          "text": "Dans le même wok, faire sauter les carottes coupées en bâtonnets 3 minutes, puis ajouter les brocolis et le poivron. Cuire 5 minutes en remuant."
+        },
+        {
+          "step": 5,
+          "title": "Finir",
+          "text": "Remettre le tofu, verser le reste de marinade et faire sauter 2 minutes. Parsemer de graines de sésame et servir aussitôt."
+        }
+      ],
+      "tips": [
+        "Pressez bien le tofu pour qu'il soit croustillant à la cuisson.",
+        "Ajoutez des noix de cajou pour le croquant.",
+        "Le tofu fumé donne encore plus de saveur."
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Risotto de chou-fleur aux crevettes",
+      "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
+      "time": "25 Min",
+      "servings": 2,
+      "description": "Le 'chou-riz' remplace le riz pour une version Keto. Ce faux risotto crémeux aux crevettes est bluffant de gourmandise tout en étant très pauvre en glucides.",
+      "carbs": "12g",
+      "proteins": "25g",
+      "calories": "290 Kcal",
+      "fat": "18g",
+      "ingredients": [
+        "1 petit chou-fleur (environ 500g)",
+        "200g de crevettes décortiquées",
+        "1 échalote",
+        "2 gousses d'ail",
+        "10cl de vin blanc",
+        "15cl de crème fraîche légère",
+        "50g de parmesan râpé",
+        "20cl de bouillon de légumes",
+        "Huile d'olive",
+        "Persil frais",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer le chou-fleur",
+          "text": "Détailler le chou-fleur en bouquets et le mixer par à-coups jusqu'à obtenir une texture de grains de riz (ne pas réduire en purée)."
+        },
+        {
+          "step": 2,
+          "title": "Faire la base",
+          "text": "Dans une grande poêle, faire revenir l'échalote émincée dans l'huile d'olive. Ajouter le chou-fleur et faire revenir 3-4 minutes."
+        },
+        {
+          "step": 3,
+          "title": "Cuire comme un risotto",
+          "text": "Déglacer au vin blanc, puis ajouter le bouillon petit à petit en remuant. Incorporer la crème et le parmesan. Cuire 8-10 minutes jusqu'à consistance crémeuse."
+        },
+        {
+          "step": 4,
+          "title": "Ajouter les crevettes",
+          "text": "Dans une autre poêle, saisir les crevettes avec l'ail 2-3 minutes. Les incorporer au risotto, mélanger et servir parsemé de persil."
+        }
+      ],
+      "tips": [
+        "Ne cuisez pas trop le chou-fleur pour garder la texture riz.",
+        "Remplacez les crevettes par du poulet ou des champignons.",
+        "Ajoutez un trait de citron pour la fraîcheur."
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Salade de quinoa et avocat",
+      "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6",
+      "time": "20 Min",
+      "servings": 2,
+      "description": "Fraîcheur et bons gras pour un déjeuner complet. Cette salade colorée au quinoa moelleux et à l'avocat onctueux est parfaitement équilibrée et très rassasiante.",
+      "carbs": "38g",
+      "proteins": "10g",
+      "calories": "340 Kcal",
+      "fat": "20g",
+      "ingredients": [
+        "150g de quinoa",
+        "1 avocat mûr",
+        "1 grenade",
+        "1 concombre",
+        "Feuilles de menthe fraîche",
+        "50g de feta (optionnel)",
+        "3 cuillères à soupe d'huile d'olive",
+        "2 cuillères à soupe de jus de citron",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Cuire le quinoa",
+          "text": "Rincer le quinoa sous l'eau froide. Le cuire dans 2 fois son volume d'eau salée pendant 12-15 minutes. Égoutter et laisser refroidir."
+        },
+        {
+          "step": 2,
+          "title": "Préparer les ingrédients",
+          "text": "Couper l'avocat en cubes. Couper le concombre en petits dés. Égrener la grenade. Ciseler la menthe."
+        },
+        {
+          "step": 3,
+          "title": "Préparer la vinaigrette",
+          "text": "Mélanger l'huile d'olive avec le jus de citron, sel et poivre."
+        },
+        {
+          "step": 4,
+          "title": "Assembler",
+          "text": "Dans un grand saladier, mélanger le quinoa froid avec le concombre, l'avocat et les graines de grenade. Arroser de vinaigrette, ajouter la menthe et la feta émiettée. Mélanger délicatement."
+        }
+      ],
+      "tips": [
+        "Ajoutez du jus de grenade dans la vinaigrette pour plus d'acidité.",
+        "Les graines de courge ou de tournesol ajoutent du croquant.",
+        "Préparez le quinoa la veille pour gagner du temps."
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Soupe de potiron et graines",
+      "image": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a",
+      "time": "40 Min",
+      "servings": 4,
+      "description": "Réconfort d'automne avec un index glycémique modéré. Cette soupe veloutée au potiron est douce et crémeuse, sublimée par des graines torréfiées croquantes.",
+      "carbs": "25g",
+      "proteins": "6g",
+      "calories": "180 Kcal",
+      "fat": "8g",
+      "ingredients": [
+        "800g de potiron (ou butternut)",
+        "1 gros oignon",
+        "2 gousses d'ail",
+        "1L de bouillon de légumes",
+        "15cl de lait de coco",
+        "Graines de courge",
+        "Huile d'olive",
+        "Noix de muscade",
+        "Sel, poivre"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Préparer le potiron",
+          "text": "Éplucher le potiron, retirer les graines et le couper en gros cubes."
+        },
+        {
+          "step": 2,
+          "title": "Faire revenir",
+          "text": "Dans une grande casserole, faire revenir l'oignon émincé dans l'huile d'olive 3 minutes. Ajouter l'ail et le potiron, faire revenir 5 minutes."
+        },
+        {
+          "step": 3,
+          "title": "Cuire",
+          "text": "Verser le bouillon, assaisonner de sel, poivre et noix de muscade. Porter à ébullition puis laisser mijoter 25 minutes jusqu'à ce que le potiron soit très tendre."
+        },
+        {
+          "step": 4,
+          "title": "Mixer et servir",
+          "text": "Mixer la soupe avec le lait de coco jusqu'à obtenir une texture bien lisse. Rectifier l'assaisonnement. Servir dans des bols, arroser d'un filet d'huile d'olive et parsemer de graines de courge torréfiées."
+        }
+      ],
+      "tips": [
+        "Torréfiez les graines de courge à la poêle 2 minutes pour plus de saveur.",
+        "Ajoutez un peu de gingembre frais pour une note épicée.",
+        "Se congèle parfaitement (sans les graines)."
+      ]
+    }
+  ]
