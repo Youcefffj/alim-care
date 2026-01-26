@@ -11,7 +11,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { X, Heart, Bookmark, Clock, Users, Flame, Drumstick, Droplet, Lightbulb } from 'lucide-react-native';
+import { X, Heart, Clock, Users, Lightbulb } from 'lucide-react-native';
 import { Colors } from '../../constants/Colors';
 import recipes from '../../data/recipes.json';
 
@@ -47,16 +47,6 @@ export default function RecipeDetailScreen() {
           <TouchableOpacity style={styles.headerBtn} onPress={() => router.back()}>
             <X color="#FFF" size={24} />
           </TouchableOpacity>
-          <TouchableOpacity 
-            style={styles.headerBtn} 
-            onPress={() => setIsFavorite(!isFavorite)}
-          >
-            <Heart 
-              color={isFavorite ? Colors.primary : "#FFF"} 
-              size={24} 
-              fill={isFavorite ? Colors.primary : "transparent"}
-            />
-          </TouchableOpacity>
         </SafeAreaView>
       </View>
 
@@ -69,8 +59,15 @@ export default function RecipeDetailScreen() {
         <View style={styles.titleSection}>
           <View style={styles.titleRow}>
             <Text style={styles.title}>{recipe.title}</Text>
-            <TouchableOpacity>
-              <Bookmark color={Colors.grayMedium} size={24} />
+            <TouchableOpacity 
+              style={styles.favoriteBtn}
+              onPress={() => setIsFavorite(!isFavorite)}
+            >
+              <Heart 
+                color={isFavorite ? Colors.primary : Colors.grayMedium} 
+                size={22} 
+                fill={isFavorite ? Colors.primary : "transparent"}
+              />
             </TouchableOpacity>
           </View>
           
@@ -86,42 +83,36 @@ export default function RecipeDetailScreen() {
           </View>
 
           <Text style={styles.description}>{recipe.description}</Text>
-          <TouchableOpacity>
-            <Text style={styles.seeMore}>Voir tout</Text>
-          </TouchableOpacity>
         </View>
 
+        {/* Separator */}
+        <View style={styles.separator} />
+
         {/* Nutritional Info */}
-        <View style={styles.nutritionRow}>
-          <View style={styles.nutritionItem}>
-            <View style={[styles.nutritionIcon, { backgroundColor: '#E8F5E9' }]}>
-              <Droplet color="#4CAF50" size={18} />
+        <View style={styles.nutritionGrid}>
+          <View style={styles.nutritionRow}>
+            <View style={styles.nutritionItem}>
+              <Image source={require('../../assets/Icon_glucides.png')} style={styles.nutritionIcon} />
+              <Text style={styles.nutritionText}>{recipe.carbs} glucides</Text>
             </View>
-            <Text style={styles.nutritionValue}>{recipe.carbs}</Text>
-            <Text style={styles.nutritionLabel}>glucides</Text>
+            <View style={styles.nutritionItem}>
+              <Image source={require('../../assets/Icon_avocat.png')} style={styles.nutritionIcon} />
+              <Text style={styles.nutritionText}>{recipe.proteins} protéines</Text>
+            </View>
           </View>
-          <View style={styles.nutritionItem}>
-            <View style={[styles.nutritionIcon, { backgroundColor: '#E3F2FD' }]}>
-              <Drumstick color="#2196F3" size={18} />
+          <View style={styles.nutritionRow}>
+            <View style={styles.nutritionItem}>
+              <Image source={require('../../assets/Icon_Kcal.png')} style={styles.nutritionIcon} />
+              <Text style={styles.nutritionText}>{recipe.calories} Kcal</Text>
             </View>
-            <Text style={styles.nutritionValue}>{recipe.proteins}</Text>
-            <Text style={styles.nutritionLabel}>protéines</Text>
-          </View>
-          <View style={styles.nutritionItem}>
-            <View style={[styles.nutritionIcon, { backgroundColor: '#FFF3E0' }]}>
-              <Flame color="#FF9800" size={18} />
+            <View style={styles.nutritionItem}>
+              <Image source={require('../../assets/Icon_gras.png')} style={styles.nutritionIcon} />
+              <Text style={styles.nutritionText}>{recipe.fat} gras</Text>
             </View>
-            <Text style={styles.nutritionValue}>{recipe.calories}</Text>
-            <Text style={styles.nutritionLabel}>kcal</Text>
-          </View>
-          <View style={styles.nutritionItem}>
-            <View style={[styles.nutritionIcon, { backgroundColor: '#FCE4EC' }]}>
-              <Droplet color="#E91E63" size={18} />
-            </View>
-            <Text style={styles.nutritionValue}>{recipe.fat}</Text>
-            <Text style={styles.nutritionLabel}>gras</Text>
           </View>
         </View>
+
+
 
         {/* Tabs */}
         <View style={styles.tabsContainer}>
@@ -224,7 +215,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     paddingHorizontal: 20,
     paddingTop: 10,
   },
@@ -250,7 +241,15 @@ const styles = StyleSheet.create({
   titleRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
+    alignItems: 'center',
+  },
+  favoriteBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#E6EBF2',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     fontSize: 24,
@@ -284,34 +283,39 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 5,
   },
+  separator: {
+    height: 1,
+    backgroundColor: '#E8E8E8',
+    marginHorizontal: 20,
+  },
+  nutritionGrid: {
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    gap: 10,
+  },
   nutritionRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 15,
-    paddingHorizontal: 10,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: Colors.gris,
+    justifyContent: 'center',
+    gap: 10,
   },
   nutritionItem: {
+    width: (width - 50) / 2,
+    flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 4,
+    paddingHorizontal: 4,
+    gap: 8,
   },
   nutritionIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 5,
+    width: 44,
+    height: 44,
+    resizeMode: 'contain',
   },
-  nutritionValue: {
-    fontSize: 14,
-    fontWeight: 'bold',
+  nutritionText: {
+    fontSize: 13,
+    fontWeight: '500',
     color: Colors.contrastMainII,
-  },
-  nutritionLabel: {
-    fontSize: 11,
-    color: Colors.grayMedium,
+    flex: 1,
   },
   tabsContainer: {
     flexDirection: 'row',
