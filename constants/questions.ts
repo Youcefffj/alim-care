@@ -118,7 +118,7 @@ export const Questions: Question[] = [
     id: 'glycemieObjective',
     type: 'selection',
     title: "Votre situation glycémique",
-    question: "Avez-vous un objectif glycémique personnel à atteindre ?",
+    question: "Avez-vous un objectif glycémique à ne pas dépasser ?",
     progress: 0.625,
     options: [
         { label: "Oui", value: "Oui" }, 
@@ -130,7 +130,7 @@ export const Questions: Question[] = [
     id: 'glycemieCible',
     type: 'input',
     title: "Votre situation glycémique",
-    question: "Quel est votre objectif glycémique ?",
+    question: "Quel est-il ?",
     progress: 0.625,
     placeholder: "Ex: 7.0", // Exemple adapté aux décimales
     min: 70, 
@@ -144,7 +144,7 @@ export const Questions: Question[] = [
     id: 'AutresPathologies',
     type: 'selection',
     title: "Enjeux de santé associés",
-    question: "Avez-vous d'autres pathologies associées ?",
+    question: "Votre diabète est-il associé à d'autres pathologies ?",
     progress: 0.75,
     options: [
         { label: "Oui", value: "Oui" },
