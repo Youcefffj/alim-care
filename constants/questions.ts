@@ -107,7 +107,7 @@ export const Questions: Question[] = [
     id: 'glycemieMoyenne',
     type: 'input',
     title: "Votre situation glycémique", 
-    question: "Pouvez-vous nous indiquer votre taux de glycémie moyen ?",
+    question: "Quel est votre taux de glycémie moyen ?",
     progress: 0.5,
     placeholder: "Ex: 19.5", // Exemple adapté aux décimales
     min: 20,   
