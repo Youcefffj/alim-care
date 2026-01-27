@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   Text, 
@@ -13,12 +13,15 @@ import {
   ScrollView,
 } from 'react-native';
 import { Search, SlidersHorizontal, Clock, Heart, X, ArrowLeft } from 'lucide-react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // J'ai remis l'import pour la sauvegarde
+
 import { Colors } from '../../constants/Colors';
 import recipes from '../../data/recipes.json';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = (width - 48) / 2;
+const STORAGE_KEY_FAVORITES = 'user_recipe_favorites';
 
 type TabType = 'recettes' | 'favoris' | 'historique';
 
@@ -38,9 +41,15 @@ const FILTER_OPTIONS = {
 
 export default function RecettesScreen() {
   const router = useRouter();
+  
+  // 1. Récupération des paramètres (Signal venant de la page Compte)
+  const params = useLocalSearchParams(); 
+
   const [activeTab, setActiveTab] = useState<TabType>('recettes');
   const [searchQuery, setSearchQuery] = useState('');
   const [favorites, setFavorites] = useState<string[]>([]);
+  
+  // Filtres
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState<Filters>({
     duration: null,
@@ -55,12 +64,35 @@ export default function RecettesScreen() {
     diet: [],
   });
 
-  const toggleFavorite = (id: string) => {
-    setFavorites(prev => 
-      prev.includes(id) ? prev.filter(fid => fid !== id) : [...prev, id]
-    );
+  // --- GESTION DU SIGNAL "OUVRIR FAVORIS" ---
+  useEffect(() => {
+    if (params.tab === 'favoris') {
+      setActiveTab('favoris');
+    }
+  }, [params.tab]);
+
+  // --- CHARGEMENT DES FAVORIS AU DÉMARRAGE ---
+  useEffect(() => {
+    const loadFavorites = async () => {
+      try {
+        const saved = await AsyncStorage.getItem(STORAGE_KEY_FAVORITES);
+        if (saved) setFavorites(JSON.parse(saved));
+      } catch (e) { console.error(e); }
+    };
+    loadFavorites();
+  }, []);
+
+  // --- SAUVEGARDE DES FAVORIS ---
+  const toggleFavorite = async (id: string) => {
+    const newFavorites = favorites.includes(id) 
+      ? favorites.filter(fid => fid !== id) 
+      : [...favorites, id];
+    
+    setFavorites(newFavorites);
+    await AsyncStorage.setItem(STORAGE_KEY_FAVORITES, JSON.stringify(newFavorites));
   };
 
+  // --- LOGIQUE DES FILTRES ---
   const openFilters = () => {
     setTempFilters({ ...filters });
     setShowFilters(true);

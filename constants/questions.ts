@@ -109,7 +109,7 @@ export const Questions: Question[] = [
     title: "Votre situation glycémique", 
     question: "Quel est votre taux de glycémie moyen ?",
     progress: 0.5,
-    placeholder: "Ex: 19.5", // Exemple adapté aux décimales
+    placeholder: "Ex: 180", // Exemple adapté aux décimales
     min: 20,   
     max: 1000,
     suffix: "mg/dL"
@@ -132,7 +132,7 @@ export const Questions: Question[] = [
     title: "Votre situation glycémique",
     question: "Quel est-il ?",
     progress: 0.625,
-    placeholder: "Ex: 7.0", // Exemple adapté aux décimales
+    placeholder: "Ex: 70", // Exemple adapté aux décimales
     min: 70, 
     max: 250,
     suffix: "mg/dL"
@@ -191,8 +191,8 @@ export const Questions: Question[] = [
     progress: 0.975,
     options: [
         { label: "Non", value: "Non" },
-        { label: "Vegetarien", value: "Vegetarien" },
-        { label: "Vegan", value: "Vegan" },
+        { label: "Végétarien", value: "Végétarien" },
+        { label: "Végétalien", value: "Végétalien" },
         { label: "Coeliaque", value: "Coeliaque" },
         { label: "Sans porc", value: "Sans porc" },
         { label: "Sans produits laitiers", value: "Sans produits laitiers" }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // <--- N'oublie pas d'importer useEffect
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   Text, 
@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback, 
   Keyboard,
   Button,
-  ActivityIndicator // <--- Pour afficher un petit chargement au début
+  ActivityIndicator
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -25,29 +25,38 @@ import CircularBackButton from '../components/BackButton';
 import NavigationFooter from '../components/OnboardingFooter';
 import { InputField } from '../components/InputField';
 
-// Clés pour le stockage (pour ne pas se tromper de nom)
-const STORAGE_KEY_ANSWERS = 'user_onboarding_answers';
-const STORAGE_KEY_HISTORY = 'user_onboarding_history';
-
 export default function QuestionnaireScreen() {
   const router = useRouter();
   
   // États
+  const [currentUserEmail, setCurrentUserEmail] = useState<string | null>(null);
   const [history, setHistory] = useState<number[]>([0]); 
   const [answers, setAnswers] = useState<Record<string, string | string[] | Record<string, string>>>({});
-
-  // On met true par défaut pour ne pas afficher la Q1 le temps de charger la sauvegarde
   const [isLoading, setIsLoading] = useState(true); 
 
-  // --- LOGIQUE DE SAUVEGARDE (PERSISTANCE) ---
+  // --- LOGIQUE DE SAUVEGARDE (PERSISTANCE LIÉE À L'EMAIL) ---
 
-  // A. CHARGEMENT INITIAL (S'exécute une seule fois au lancement)
+  // A. CHARGEMENT INITIAL
   useEffect(() => {
     const loadProgress = async () => {
       try {
-        // On récupère les deux morceaux de données
-        const savedAnswers = await AsyncStorage.getItem(STORAGE_KEY_ANSWERS);
-        const savedHistory = await AsyncStorage.getItem(STORAGE_KEY_HISTORY);
+        // 1. Qui est connecté ?
+        const email = await AsyncStorage.getItem('current_user_email');
+        
+        if (!email) {
+            // Personne ? Retour au login par sécurité
+            router.replace('/login');
+            return;
+        }
+        setCurrentUserEmail(email);
+
+        // 2. On génère les clés dynamiques spécifiques à cet utilisateur
+        const answersKey = `user_onboarding_answers_${email}`;
+        const historyKey = `user_onboarding_history_${email}`;
+
+        // 3. On récupère les données
+        const savedAnswers = await AsyncStorage.getItem(answersKey);
+        const savedHistory = await AsyncStorage.getItem(historyKey);
 
         if (savedAnswers) {
           setAnswers(JSON.parse(savedAnswers));
@@ -58,7 +67,6 @@ export default function QuestionnaireScreen() {
       } catch (error) {
         console.log("Erreur de chargement", error);
       } finally {
-        // Quoi qu'il arrive, on arrête le chargement pour afficher l'interface
         setIsLoading(false);
       }
     };
@@ -66,14 +74,17 @@ export default function QuestionnaireScreen() {
     loadProgress();
   }, []);
 
-  // B. SAUVEGARDE AUTOMATIQUE (S'exécute à chaque changement de réponse ou de page)
+  // B. SAUVEGARDE AUTOMATIQUE
   useEffect(() => {
     const saveProgress = async () => {
       try {
-        // On ne sauvegarde que si on a fini de charger (pour ne pas écraser la sauvegarde avec des données vides)
-        if (!isLoading) {
-          await AsyncStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(answers));
-          await AsyncStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
+        // On ne sauvegarde que si on a un utilisateur et que le chargement est fini
+        if (!isLoading && currentUserEmail) {
+          const answersKey = `user_onboarding_answers_${currentUserEmail}`;
+          const historyKey = `user_onboarding_history_${currentUserEmail}`;
+
+          await AsyncStorage.setItem(answersKey, JSON.stringify(answers));
+          await AsyncStorage.setItem(historyKey, JSON.stringify(history));
         }
       } catch (error) {
         console.log("Erreur de sauvegarde", error);
@@ -81,34 +92,36 @@ export default function QuestionnaireScreen() {
     };
 
     saveProgress();
-  }, [answers, history, isLoading]); // Déclenche la sauvegarde si answers ou history change
+  }, [answers, history, isLoading, currentUserEmail]);
 
 
   // --- Variables calculées ---
-  const currentIndex = history[history.length - 1];
+  // Si history est vide (bug rare), on remet [0]
+  const safeHistory = history.length > 0 ? history : [0];
+  const currentIndex = safeHistory[safeHistory.length - 1];
   const currentQuestion = Questions[currentIndex];
-  const selectedValue = answers[currentQuestion.id];
+  const selectedValue = answers[currentQuestion?.id]; // Le '?' protège si index hors limite
 
+  // --- Reset DEV (Spécifique à l'utilisateur) ---
   const clearStorage = async () => {
-    await AsyncStorage.clear();
+    if (!currentUserEmail) return;
+    
+    const answersKey = `user_onboarding_answers_${currentUserEmail}`;
+    const historyKey = `user_onboarding_history_${currentUserEmail}`;
+    
+    await AsyncStorage.removeItem(answersKey);
+    await AsyncStorage.removeItem(historyKey);
+    
     setAnswers({});
     setHistory([0]);
-    Alert.alert("Reset", "Mémoire effacée, retour au début.");
-};
+    Alert.alert("Reset", "Mémoire de cet utilisateur effacée.");
+  };
 
-// --- Gestion du Double Input (Nom / Prénom) ---
+  // --- Gestion du Double Input (Nom / Prénom) ---
   const handleDoubleInput = (key: string, text: string) => {
-    // 1. On récupère l'objet actuel (ou vide s'il n'existe pas encore)
-    // On force le type "as Record..." pour que TS comprenne
+    if (!currentQuestion) return;
     const currentAnswerObj = (answers[currentQuestion.id] as Record<string, string>) || {};
-
-    // 2. On met à jour uniquement la clé modifiée (ex: 'firstname')
-    const newAnswerObj = {
-      ...currentAnswerObj,
-      [key]: text
-    };
-
-    // 3. On sauvegarde
+    const newAnswerObj = { ...currentAnswerObj, [key]: text };
     setAnswers(prev => ({ ...prev, [currentQuestion.id]: newAnswerObj }));
   };
 
@@ -119,6 +132,8 @@ export default function QuestionnaireScreen() {
   };
 
   const handleOptionSelect = (value: string) => {
+    if (!currentQuestion) return;
+
     if (currentQuestion.isMultiSelect) {
       const currentList = (answers[currentQuestion.id] as string[]) || [];
       let newList: string[];
@@ -140,7 +155,9 @@ export default function QuestionnaireScreen() {
     }
   };
 
-  const handleNext = async () => { // Note le 'async' ici, utile si on veut faire des await
+  const handleNext = async () => {
+    if (!currentQuestion) return;
+
     // 1. Validation basique
     if (!selectedValue) {
       Alert.alert("Action requise", "Veuillez sélectionner une option ou remplir le champ.");
@@ -148,13 +165,9 @@ export default function QuestionnaireScreen() {
     }
     if (currentQuestion.type === 'double_input' && currentQuestion.inputs) {
       const currentVal = selectedValue as Record<string, string> | undefined;
-      
-      // On vérifie si l'objet existe ET si les 2 clés sont remplies
-      // On boucle sur les champs requis (inputs) définie dans data
       const isMissingField = currentQuestion.inputs.some(field => 
         !currentVal || !currentVal[field.key] || currentVal[field.key].trim() === ''
       );
-
       if (isMissingField) {
         Alert.alert("Action requise", "Veuillez remplir votre prénom et votre nom.");
         return;
@@ -202,10 +215,8 @@ export default function QuestionnaireScreen() {
       setHistory([...history, nextIndex]);
     } else {
       console.log("Fin :", answers);
-
-      Alert.alert("Validation", JSON.stringify(answers, null, 2), 
-        [{ text: "OK", onPress: () => router.push('/(tabs)/dashboard') }]
-      );
+      // Fin du questionnaire -> Dashboard
+      router.replace('/(tabs)/dashboard');
     }
   };
 
@@ -213,13 +224,13 @@ export default function QuestionnaireScreen() {
     if (history.length > 1) {
       setHistory(history.slice(0, -1));
     } else {
+      // Si on est au tout début, on peut proposer de se déconnecter ou juste faire un back classique
       router.back();
     }
   };
 
   // --- Rendu conditionnel pendant le chargement ---
-  // Si on est en train de chercher la sauvegarde, on affiche un rond qui tourne
-  if (isLoading) {
+  if (isLoading || !currentQuestion) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.white}}>
         <ActivityIndicator size="large" color={Colors.primary || '#000'} />
@@ -227,7 +238,7 @@ export default function QuestionnaireScreen() {
     );
   }
 
-  // --- Rendu Principal (Inchangé) ---
+  // --- Rendu Principal ---
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" />
@@ -241,10 +252,9 @@ export default function QuestionnaireScreen() {
           <View style={styles.container}>
             
             <View style={styles.header}>
-              <CircularBackButton onPress={() => router.back()} />
-  
-              {/* Bouton temporaire de DEV pour vider le cache */}
-              <Button title="Reset DEV" onPress={clearStorage} color="red" />
+              <CircularBackButton onPress={handleBack} />
+              {/* Le bouton Reset n'est affiché que pour le debug */}
+              <Button title="Reset (Debug)" onPress={clearStorage} color="red" />
             </View>
 
             <View style={styles.contentContainer}>
@@ -302,15 +312,11 @@ export default function QuestionnaireScreen() {
                 {currentQuestion.type === 'double_input' && currentQuestion.inputs && (
                   <View style={{ gap: 15 }}> 
                     {currentQuestion.inputs.map((field) => {
-                      
-                      // On récupère la valeur actuelle de ce champ précis
-                      // (selectedValue est l'objet global {firstname:..., lastname:...})
                       const valObject = (selectedValue as Record<string, string>) || {};
                       const fieldValue = valObject[field.key] || '';
 
                       return (
                         <View key={field.key}>
-                          {/* Petit label au dessus pour savoir ce qu'on tape */}
                           <Text style={{ 
                             marginLeft: 10, 
                             marginBottom: 5, 
@@ -324,15 +330,12 @@ export default function QuestionnaireScreen() {
                             value={fieldValue}
                             onChangeText={(text) => handleDoubleInput(field.key, text)}
                             placeholder={field.placeholder}
-                            // On désactive le clavier numérique ici
                             keyboardType='default'
-                            // Auto-capitalisation pour les noms propres
                             autoCapitalize='words'
                             style={{
                               backgroundColor: '#F5F9FA',
                               borderRadius: 16,
                               paddingVertical: 18,
-                              // On aligne à gauche pour les noms, c'est souvent plus joli
                               textAlign: 'left', 
                               paddingHorizontal: 20,
                               fontSize: 18,
@@ -361,9 +364,7 @@ export default function QuestionnaireScreen() {
   );
 }
 
-// ... Tes styles restent inchangés ...
 const styles = StyleSheet.create({
-  // ... (Garde tes styles actuels)
   safeArea: {
     flex: 1,
     backgroundColor: Colors.white,
@@ -372,11 +373,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between', 
   },
-  // ... etc
   header: {
     paddingHorizontal: 24,
     paddingTop: 10,
-    alignItems: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between', // Pour espacer Back et Reset
   },
   contentContainer: {
     paddingHorizontal: 24,

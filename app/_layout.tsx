@@ -8,6 +8,7 @@ export default function Layout() {
       <Stack.Screen name="register" />
       <Stack.Screen name="onboarding" />
       <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="(account)" />
     </Stack>
   );
 }
