@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { 
   View, 
   Text, 
@@ -11,9 +11,11 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Platform,
+  Alert,
+  BackHandler
 } from 'react-native';
 import { PersonStanding, X } from 'lucide-react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors } from '../../constants/Colors';
 import { GlycemicCircle } from '../../components/GlycemicCircle';
@@ -32,8 +34,7 @@ interface GlycemicValues {
 export default function DashboardScreen() {
   const router = useRouter();
   const [dailyChallenge, setDailyChallenge] = useState(challenges[0]);
-  const [userName, setUserName] = useState('');
-  
+  const [userName, setUserName] = useState("Utilisateur");
   // États pour les valeurs glycémiques
   const [glycemicValues, setGlycemicValues] = useState<GlycemicValues>({
     beforeMeal: 78,
@@ -82,6 +83,68 @@ export default function DashboardScreen() {
     loadUserName();
     loadGlycemicValues();
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      
+      // --- PARTIE A : CHARGEMENT DU NOM ---
+      const loadUserData = async () => {
+        try {
+          // a. Qui est connecté ?
+          const email = await AsyncStorage.getItem('current_user_email');
+          if (!email) return;
+
+          // b. On regarde d'abord si un PROFIL a été édité (prioritaire)
+          // (C'est ce qui est sauvegardé depuis la page Compte)
+          const profileKey = `user_profile_data_${email}`;
+          const profileJson = await AsyncStorage.getItem(profileKey);
+          
+          if (profileJson) {
+            const profile = JSON.parse(profileJson);
+            if (profile.name) {
+              setUserName(profile.name);
+              return; // On a trouvé, on s'arrête là
+            }
+          }
+
+          // c. Sinon, on regarde dans la base d'INSCRIPTION (simulated_user_db)
+          // (C'est le nom entré lors du register)
+          const dbJson = await AsyncStorage.getItem('simulated_user_db');
+          if (dbJson) {
+            const db = JSON.parse(dbJson);
+            if (db[email] && db[email].name) {
+              setUserName(db[email].name);
+            }
+          }
+        } catch (e) {
+          console.error("Erreur chargement dashboard", e);
+        }
+      };
+
+      loadUserData(); // On lance le chargement
+
+      // --- PARTIE B : GESTION BOUTON RETOUR (Ton code précédent) ---
+      const onBackPress = () => {
+        Alert.alert("Déconnexion", "Voulez-vous quitter l'application et vous déconnecter ?", [
+          { text: "Annuler", style: "cancel", onPress: () => {} },
+          { 
+            text: "Se déconnecter", 
+            style: 'destructive',
+            onPress: async () => {
+              await AsyncStorage.removeItem('current_user_email');
+              if (router.canGoBack()) { router.dismissAll(); }
+              router.replace('/'); 
+            }
+          }
+        ]);
+        return true; 
+      };
+
+      const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () => subscription.remove();
+
+    }, [])
+  );
 
   // Ouvrir le modal pour éditer une valeur
   const openEditModal = (field: 'beforeMeal' | 'afterMeal') => {

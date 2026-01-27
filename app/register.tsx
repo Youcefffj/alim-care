@@ -1,6 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// app/register.tsx
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -17,39 +15,73 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Validation de l'email
   const isValidEmail = (emailStr: string) => {
-    // Cette formule vérifie : du texte + @ + du texte + . + du texte
     return /\S+@\S+\.\S+/.test(emailStr);
   };
 
+  // 👇 NOUVEAU : Fonction de validation du mot de passe
+  const validatePassword = (pwd: string) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(pwd);
+    const hasLowerCase = /[a-z]/.test(pwd);
+    const hasNumber = /[0-9]/.test(pwd);
+    // Liste des caractères spéciaux acceptés
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>_\-+=[\].\/]/.test(pwd);
+
+    if (pwd.length < minLength) return "Le mot de passe doit faire au moins 8 caractères.";
+    if (!hasUpperCase) return "Le mot de passe doit contenir au moins une majuscule.";
+    if (!hasLowerCase) return "Le mot de passe doit contenir au moins une minuscule.";
+    if (!hasNumber) return "Le mot de passe doit contenir au moins un chiffre.";
+    if (!hasSpecialChar) return "Le mot de passe doit contenir au moins un caractère spécial (!@#$%^&*(),.?\":{}|<>_+-=[]/).";
+
+    return null; // Tout est bon
+  };
+
   const handleSignUp = async () => {
-    if (!name || !email || !password) { Alert.alert("Erreur", "Champs manquants"); return; }
-    if (!isValidEmail(email)) { Alert.alert("Erreur", "Email invalide"); return; }
+    // 1. Vérification champs vides
+    if (!name || !email || !password) { 
+        Alert.alert("Erreur", "Champs manquants"); 
+        return; 
+    }
+
+    // 2. Vérification format email
+    if (!isValidEmail(email)) { 
+        Alert.alert("Erreur", "Email invalide"); 
+        return; 
+    }
+
+    // 3. 👇 Vérification format mot de passe
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+        Alert.alert("Mot de passe invalide", passwordError);
+        return;
+    }
 
     const cleanEmail = email.trim().toLowerCase();
 
     try {
-      // 1. Récupérer la "base de données" actuelle
+      // 4. Récupérer la "base de données" actuelle
       const existingDbJson = await AsyncStorage.getItem('simulated_user_db');
       let userDb = existingDbJson ? JSON.parse(existingDbJson) : {};
 
-      // 2. Vérifier si l'email existe déjà
+      // 5. Vérifier si l'email existe déjà
       if (userDb[cleanEmail]) {
         Alert.alert("Erreur", "Cet email est déjà utilisé.");
         return;
       }
 
-      // 3. Ajouter le nouvel utilisateur
+      // 6. Ajouter le nouvel utilisateur
       userDb[cleanEmail] = {
         name: name,
         email: cleanEmail,
         password: password
       };
 
-      // 4. Sauvegarder la base mise à jour
+      // 7. Sauvegarder la base mise à jour
       await AsyncStorage.setItem('simulated_user_db', JSON.stringify(userDb));
       
-      // 5. Connecter l'utilisateur (Session en cours)
+      // 8. Connecter l'utilisateur (Session en cours)
       await AsyncStorage.setItem('current_user_email', cleanEmail);
 
       Alert.alert("Succès", "Compte créé !", [
@@ -64,7 +96,6 @@ export default function RegisterScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      {/* KeyboardAvoidingView permet de remonter l'écran quand le clavier sort */}
       <KeyboardAvoidingView 
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
@@ -95,13 +126,18 @@ export default function RegisterScreen() {
               value={email}
               onChangeText={setEmail}
             />
-            <InputField 
-              placeholder="Mot de passe" 
-              // 👇 CORRECTION : Utilisation de la prop standard React Native
-              secureTextEntry={true} 
-              value={password}
-              onChangeText={setPassword}
-            />
+            <View>
+                <InputField 
+                placeholder="Mot de passe" 
+                secureTextEntry={true} 
+                value={password}
+                onChangeText={setPassword}
+                />
+                {/* Petit texte d'aide pour l'utilisateur */}
+                <Text style={styles.passwordHint}>
+                    8 car. min, 1 Maj, 1 min, 1 chiffre, 1 car. spécial
+                </Text>
+            </View>
           </View>
 
           {/* Footer */}
@@ -143,13 +179,18 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex: 1,
-    // 👇 AJOUT : Espacement entre les champs Input
     gap: 20, 
+  },
+  passwordHint: {
+    fontSize: 11,
+    color: Colors.grayMedium,
+    marginTop: 5,
+    marginLeft: 5,
+    fontStyle: 'italic',
   },
   footer: {
     marginTop: 30,
     alignItems: 'center',
-    // Petit padding en bas pour éviter que le bouton colle trop au bord sur certains écrans
     paddingBottom: 20, 
   },
   legalText: {
