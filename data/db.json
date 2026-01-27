@@ -1,0 +1,114 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Saumon rôti, céréales complètes & brocolis",
+      "image": "https://images.unsplash.com/photo-1467003909585-2f8a7270028d",
+      "time": "30 Min",
+      "servings": 2,
+      "category": "Salé",
+      "likes": 0,
+      "author": {
+        "name": "James Spader",
+        "avatar": "https://randomuser.me/api/portraits/men/1.jpg"
+      },
+      "carbs": "~32g",
+      "description": "Un plat équilibré riche en oméga-3.",
+      "ingredients": [
+        "Saumon",
+        "Brocolis",
+        "Quinoa"
+      ],
+      "instructions": [],
+      "comments": [],
+      "likedBy": []
+    },
+    {
+      "id": "2",
+      "title": "Quinoa, poulet grillé & légumes croquants",
+      "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71",
+      "time": "25 Min",
+      "servings": 1,
+      "category": "Salé",
+      "likes": 1,
+      "author": {
+        "name": "Agnes",
+        "avatar": "https://randomuser.me/api/portraits/women/2.jpg"
+      },
+      "carbs": "~38g",
+      "description": "Parfait pour le déjeuner.",
+      "ingredients": [
+        "Poulet",
+        "Quinoa",
+        "Avocat"
+      ],
+      "instructions": [],
+      "comments": [],
+      "likedBy": [
+        "jiji@jiji.fr"
+      ]
+    },
+    {
+      "id": "af1c",
+      "title": "Test recette",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+      "time": "10 Min",
+      "servings": 2,
+      "description": "Recette de test, il manque l’ajout d’une photo et des étapes de cuisine",
+      "carbs": "65g",
+      "ingredients": [
+        "1 tarte",
+        "Des oeu"
+      ],
+      "instructions": [],
+      "tips": [],
+      "category": "Sucré",
+      "likes": 0,
+      "comments": [],
+      "author": {
+        "name": "Moi",
+        "avatar": null
+      },
+      "likedBy": []
+    },
+    {
+      "id": "b4ed",
+      "title": "Nabsvud",
+      "image": "http://192.168.1.81:3001/public/uploads/recipe-1769532342358-70387486.png",
+      "time": "36 Min",
+      "servings": 2,
+      "description": "Jenfbbckans f f",
+      "carbs": "513g",
+      "ingredients": [
+        "Nqnsvdufbebs",
+        "Kakajava",
+        "Qveceuf"
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "title": "Jaidbfbfe",
+          "text": "Aisbbfbd jaiakaja"
+        }
+      ],
+      "tips": [],
+      "category": "Salé",
+      "likes": 1,
+      "comments": [
+        {
+          "id": "1769533305221",
+          "text": "Ça a l’air top !!",
+          "author": "Jiji",
+          "date": "27/01/2026"
+        }
+      ],
+      "author": {
+        "name": "Jiji",
+        "avatar": "file:///var/mobile/Containers/Data/Application/22224A1B-FC9C-4158-A5E1-F0749CCB9900/Library/Caches/ExponentExperienceData/@anonymous/alim-care-48f97530-4aa7-4172-8ff2-9dced243c5f7/ImagePicker/B3F9CA47-1AED-4AF0-8AC7-6DD44C721D00.jpg"
+      },
+      "likedBy": [
+        "jiji@jiji.fr"
+      ]
+    }
+  ]
+}
