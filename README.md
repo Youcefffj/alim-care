@@ -341,18 +341,6 @@ Dans l'app, aller dans **Compte > Paramètres** ou vider le cache de l'app.
 
 ---
 
-## 📱 Captures d'écran
-
-*À venir*
-
----
-
 ## 👥 Équipe
 
 Projet de fin d'études (PFE) — AlimCare / Elya
-
----
-
-## 📄 Licence
-
-Projet privé — Tous droits réservés
