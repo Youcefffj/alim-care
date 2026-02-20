@@ -50,7 +50,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
 // B. Route pour la base de données (db.json)
 // Toutes les requêtes vers /api iront interroger votre db.json !
 app.use('/api', jsonServer.defaults());
-app.use('/api', jsonServer.router('db.json'));
+app.use('/api', jsonServer.router('data/db.json'));
 
 // --- 4. DÉMARRAGE DU SERVEUR ---
 app.listen(PORT, () => {

@@ -10,7 +10,7 @@
     "test": "jest",
     "// --- MES COMMANDES PERSO ---": "",
     "server:db": "npx json-server data/db.json --host 0.0.0.0 --port 3000",
-    "server:img": "node server.js",
+    "server:img": "node server2.js",
     "app:clear": "expo start -c",
     "dev": "start npm run server:db && start npm run server:img && npm run app:clear"
   },
